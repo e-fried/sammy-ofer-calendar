@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "last_success": "2026-11-01T22:11:33.460349+00:00",
+  "fixtures": [
+    {
+      "uid": "56befefef16cff33b4a40d22e0ee5d9e@sammy-offer-reminder",
+      "payload": "{\"uid\": \"56befefef16cff33b4a40d22e0ee5d9e@sammy-offer-reminder\", \"title\": \"\\u05d4\\u05e4\\u05d5\\u05e2\\u05dc \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05de\\u05db\\u05d1\\u05d9 \\u05d7\\u05d9\\u05e4\\u05d4\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 13\", \"start\": \"2026-12-05T19:30:00+02:00\"}"
+    },
+    {
+      "uid": "7ba0b1ada91121fcad4006deb51e83e8@sammy-offer-reminder",
+      "payload": "{\"uid\": \"7ba0b1ada91121fcad4006deb51e83e8@sammy-offer-reminder\", \"title\": \"\\u05de\\u05db\\u05d1\\u05d9 \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05d1\\u05d9\\u05ea\\\"\\u05e8 \\u05d9\\u05e8\\u05d5\\u05e9\\u05dc\\u05d9\\u05dd\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 12\", \"start\": \"2026-12-02T20:30:00+02:00\"}"
+    },
+    {
+      "uid": "90fb2b3274d10c51d1eaa7476cf30f72@sammy-offer-reminder",
+      "payload": "{\"uid\": \"90fb2b3274d10c51d1eaa7476cf30f72@sammy-offer-reminder\", \"title\": \"\\u05de\\u05db\\u05d1\\u05d9 \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05de\\u05db\\u05d1\\u05d9 \\u05e0\\u05ea\\u05e0\\u05d9\\u05d4\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 10\", \"start\": \"2026-11-07T17:30:00+02:00\"}"
+    },
+    {
+      "uid": "990b081e7e82269690657f8ae440431d@sammy-offer-reminder",
+      "payload": "{\"uid\": \"990b081e7e82269690657f8ae440431d@sammy-offer-reminder\", \"title\": \"\\u05d4\\u05e4\\u05d5\\u05e2\\u05dc \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05e2\\u05d9\\u05e8\\u05d5\\u05e0\\u05d9 \\u05d3\\u05d5\\u05e8\\u05d5\\u05ea \\u05d8\\u05d1\\u05e8\\u05d9\\u05d4\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 11\", \"start\": \"2026-11-28T18:00:00+02:00\"}"
+    },
+    {
+      "uid": "b32bccc3d32ad4731640ec16bc269e04@sammy-offer-reminder",
+      "payload": "{\"uid\": \"b32bccc3d32ad4731640ec16bc269e04@sammy-offer-reminder\", \"title\": \"\\u05de\\u05db\\u05d1\\u05d9 \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05de\\u05db\\u05d1\\u05d9 \\u05ea\\\"\\u05d0\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 15\", \"start\": \"2026-12-21T20:30:00+02:00\"}"
+    },
+    {
+      "uid": "f79b2002062c8dab4a5c1fbe20f0dacf@sammy-offer-reminder",
+      "payload": "{\"uid\": \"f79b2002062c8dab4a5c1fbe20f0dacf@sammy-offer-reminder\", \"title\": \"\\u05d4\\u05e4\\u05d5\\u05e2\\u05dc \\u05d7\\u05d9\\u05e4\\u05d4 \\u2013 \\u05d4\\u05e4\\u05d5\\u05e2\\u05dc \\u05d1\\\"\\u05e9\", \"competition\": \"\\u05dc\\u05d9\\u05d2\\u05ea \\u05d4\\u05e2\\u05dc \\u05de\\u05d7\\u05d6\\u05d5\\u05e8 14\", \"start\": \"2026-12-14T20:00:00+02:00\"}"
+    }
+  ],
+  "revisions": [
+    {
+      "uid": "56befefef16cff33b4a40d22e0ee5d9e@sammy-offer-reminder",
+      "fingerprint": "c5a376d51a491d236514dde36941bfef8ffaf9fe00d2441ff2a4fbf75bde0e4c",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.737946+00:00"
+    },
+    {
+      "uid": "7ba0b1ada91121fcad4006deb51e83e8@sammy-offer-reminder",
+      "fingerprint": "3b9f5a13ee1a686d24352c1f246e375d093acc2aa92031e331bc6b36341e8dbb",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.737918+00:00"
+    },
+    {
+      "uid": "90fb2b3274d10c51d1eaa7476cf30f72@sammy-offer-reminder",
+      "fingerprint": "bfc4f8068a1793e170cbc1db21c1d478cbc5d59dd6558cc5b7ab02b040ffc2c7",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.737508+00:00"
+    },
+    {
+      "uid": "990b081e7e82269690657f8ae440431d@sammy-offer-reminder",
+      "fingerprint": "68bee93a35935f41e0ad73b5bab9ba357498f0ca0ad8348ecc7d5120f7631544",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.737880+00:00"
+    },
+    {
+      "uid": "b32bccc3d32ad4731640ec16bc269e04@sammy-offer-reminder",
+      "fingerprint": "b4698c4993e7f99a76d3c5cea52d8d226e20b9a4cc4f7d9ade91f7e616c21b8a",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.738004+00:00"
+    },
+    {
+      "uid": "f79b2002062c8dab4a5c1fbe20f0dacf@sammy-offer-reminder",
+      "fingerprint": "8ef2c03991c0341cff46feac31f5a14902fc9624a826fc1d59cb3149d7cc8b93",
+      "sequence": 0,
+      "modified": "2026-11-01T17:23:56.737978+00:00"
+    }
+  ]
+}
