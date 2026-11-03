@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_success": "2026-11-03T17:04:48.751685+00:00",
+  "last_success": "2026-11-03T17:16:01.465584+00:00",
   "fixtures": [
     {
       "uid": "36de12e96c4346dbc8ee344e4917873d@sammy-offer-reminder",
@@ -42,57 +42,57 @@
   "revisions": [
     {
       "uid": "36de12e96c4346dbc8ee344e4917873d@sammy-offer-reminder",
-      "fingerprint": "45f39e948737a38433e96b11cdcb591751aa42afe19adbbd05717816952a589b",
-      "sequence": 0,
-      "modified": "2026-11-03T16:50:52.461979+00:00"
+      "fingerprint": "d8f98986d6a5c798674051727023c1b142c1b469b8c007bbef9cc9b23fee60d4",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465526+00:00"
     },
     {
       "uid": "56befefef16cff33b4a40d22e0ee5d9e@sammy-offer-reminder",
-      "fingerprint": "c5a376d51a491d236514dde36941bfef8ffaf9fe00d2441ff2a4fbf75bde0e4c",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.737946+00:00"
+      "fingerprint": "33c2223359bde1b691099b36974fff4502488a4da80f53dc8901f5e32de917c5",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465392+00:00"
     },
     {
       "uid": "7ba0b1ada91121fcad4006deb51e83e8@sammy-offer-reminder",
-      "fingerprint": "3b9f5a13ee1a686d24352c1f246e375d093acc2aa92031e331bc6b36341e8dbb",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.737918+00:00"
+      "fingerprint": "a9ff37fec846af4e47ee1bb861e7b3da2f804fb88dff24fe9cb9f759b183d695",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465364+00:00"
     },
     {
       "uid": "8c3db25009c0f962e1bd83848c57bb8e@sammy-offer-reminder",
-      "fingerprint": "3add788ae2903cb1d2b85100f920b7a1321e94e11c8e9b5eee6a99a9e0e895f1",
-      "sequence": 0,
-      "modified": "2026-11-03T16:50:52.462028+00:00"
+      "fingerprint": "4332b2943110a24a9b5b6e91eba13f1752f8f63a0c142073a22383e288ee676a",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465549+00:00"
     },
     {
       "uid": "90fb2b3274d10c51d1eaa7476cf30f72@sammy-offer-reminder",
-      "fingerprint": "bfc4f8068a1793e170cbc1db21c1d478cbc5d59dd6558cc5b7ab02b040ffc2c7",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.737508+00:00"
+      "fingerprint": "b973939fd32e42c21618e126aed4831e9fa9b0917bdfff6889bf79ba7378a59c",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465163+00:00"
     },
     {
       "uid": "990b081e7e82269690657f8ae440431d@sammy-offer-reminder",
-      "fingerprint": "68bee93a35935f41e0ad73b5bab9ba357498f0ca0ad8348ecc7d5120f7631544",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.737880+00:00"
+      "fingerprint": "a5ced7842ef059b39e2af7e5f52bc2633dd9ccb59209f156872d4750377df84f",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465321+00:00"
     },
     {
       "uid": "b32bccc3d32ad4731640ec16bc269e04@sammy-offer-reminder",
-      "fingerprint": "b4698c4993e7f99a76d3c5cea52d8d226e20b9a4cc4f7d9ade91f7e616c21b8a",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.738004+00:00"
+      "fingerprint": "54130b4fa09804289cc04f254a62033a00c48b80755acc36bc8590615d7de2e3",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465497+00:00"
     },
     {
       "uid": "e791aa3be60fb789331d1ba6c6154268@sammy-offer-reminder",
-      "fingerprint": "d12bfa3bbc19141d4e35087b021f730b1af9ed20be73344211985beae368716b",
-      "sequence": 0,
-      "modified": "2026-11-03T16:50:52.462050+00:00"
+      "fingerprint": "cf5cec472caa8a592f53482da71bbdfa0c4ddcee878a1e1354c4ce022d6ef93f",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465572+00:00"
     },
     {
       "uid": "f79b2002062c8dab4a5c1fbe20f0dacf@sammy-offer-reminder",
-      "fingerprint": "8ef2c03991c0341cff46feac31f5a14902fc9624a826fc1d59cb3149d7cc8b93",
-      "sequence": 0,
-      "modified": "2026-11-01T17:23:56.737978+00:00"
+      "fingerprint": "7d37350fba193b152703a9d2d85f14d34557ee068862d96dc82908d9b54a8596",
+      "sequence": 1,
+      "modified": "2026-11-03T17:16:01.465418+00:00"
     }
   ]
 }
