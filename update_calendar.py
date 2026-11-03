@@ -62,9 +62,17 @@ def update(output_dir, state_path, html=None, lead=235):
 <style>body{{max-width:700px;margin:60px auto;padding:24px;font:18px/1.6 system-ui;color:#173e30;background:#f4f6f0}}a{{color:#126342}}code{{overflow-wrap:anywhere}}</style>
 <h1>Sammy Ofer traffic calendar</h1>
 <p>Subscribe once. Game-day traffic blocks start {lead} minutes before kickoff.</p>
-<p><a href="calendar.ics">Calendar feed / download .ics</a></p>
-<p>Copy the link above. In Google Calendar on desktop, choose <strong>Other calendars → + → From URL</strong> and paste it.</p>
-<p>Subscribe by URL for updates. Importing a downloaded file gives a one-time snapshot.</p>
+<h2>Add to Google Calendar — automatic updates</h2>
+<ol><li>On a computer, open <a href="https://calendar.google.com/">Google Calendar</a>.</li>
+<li>Right-click <a href="calendar.ics">this calendar link</a> and choose <strong>Copy link address</strong>.</li>
+<li>In Google Calendar, next to <strong>Other calendars</strong>, click <strong>+ → From URL</strong>.</li>
+<li>Paste the link and click <strong>Add calendar</strong>. Setup is complete.</li></ol>
+<p>Google refreshes it automatically; updates may not appear immediately. Initial setup requires a computer browser, not the Google Calendar mobile app.</p>
+<h2>Download a copy — no automatic updates</h2>
+<ol><li><a href="calendar.ics" download="sammy-ofer-calendar.ics">Download the calendar (.ics)</a>.</li>
+<li>In Google Calendar, open <strong>Settings → Import &amp; export</strong>.</li>
+<li>Select the downloaded file, choose a calendar, and click <strong>Import</strong>.</li></ol>
+<p>Use only one method to avoid duplicate events. Choose the subscription above if you want future updates.</p>
 <p>No email signup, Gmail access, or personal credentials required.</p>
 <p>Last successful source refresh: <time>{synced}</time> (UTC). {len(events)} calendar events.</p>
 <p>Calendar apps control refresh timing and notifications. This separate calendar does not automatically reserve availability on your primary work calendar.</p>
