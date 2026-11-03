@@ -24,6 +24,8 @@ class FeedTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertNotIn('Set-Cookie', response.headers)
         feed = Calendar.from_ical(response.data)
+        self.assertEqual(str(feed['NAME']), 'Sammy Offer Calendar')
+        self.assertEqual(str(feed['X-WR-CALNAME']), 'Sammy Offer Calendar')
         self.assertNotIn('METHOD', feed)
         event = feed.walk('VEVENT')[0]
         self.assertEqual(event.decoded('DTEND') - event.decoded('DTSTART'), timedelta(minutes=235))

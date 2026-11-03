@@ -19,7 +19,8 @@ def build_feed(store, lead=235):
     feed = Calendar()
     feed.add('version', '2.0')
     feed.add('prodid', '-//Sammy Ofer Traffic//Calendar Subscription//EN')
-    feed.add('x-wr-calname', f'Sammy Ofer traffic ({lead} minutes before kickoff)')
+    feed.add('name', 'Sammy Offer Calendar')
+    feed.add('x-wr-calname', 'Sammy Offer Calendar')
     feed.add('x-wr-timezone', 'Asia/Jerusalem')
     feed.add('x-wr-caldesc', 'Traffic planning blocks based on the official stadium schedule. Times may change.')
     # This is a hint, not a promise that a client will refresh at this interval.
