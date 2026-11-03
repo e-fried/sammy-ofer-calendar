@@ -68,10 +68,17 @@ def update(output_dir, state_path, html=None, lead=235):
 <li>In Google Calendar, next to <strong>Other calendars</strong>, click <strong>+ → From URL</strong>.</li>
 <li>Paste the link and click <strong>Add calendar</strong>. Setup is complete.</li></ol>
 <p>Google refreshes it automatically; updates may not appear immediately. Initial setup requires a computer browser, not the Google Calendar mobile app.</p>
+<h2>Add to Outlook — automatic updates</h2>
+<ol><li>Open Outlook in your browser and select <strong>Calendar</strong>.</li>
+<li>Click <strong>Add calendar → Subscribe from web</strong>.</li>
+<li>Copy <a href="calendar.ics">this calendar link</a> and paste it into Outlook.</li>
+<li>Name it <strong>Sammy Ofer traffic</strong>, then click <strong>Import</strong> or <strong>Import and Save</strong>.</li></ol>
+<p>Outlook refreshes subscriptions automatically, but changes can take more than 24 hours to appear.</p>
 <h2>Download a copy — no automatic updates</h2>
 <ol><li><a href="calendar.ics" download="sammy-ofer-calendar.ics">Download the calendar (.ics)</a>.</li>
 <li>In Google Calendar, open <strong>Settings → Import &amp; export</strong>.</li>
 <li>Select the downloaded file, choose a calendar, and click <strong>Import</strong>.</li></ol>
+<p><strong>For Outlook:</strong> open Calendar → Add calendar → Upload from file. Browse to the downloaded .ics file, choose the destination calendar, and click Import.</p>
 <p>Use only one method to avoid duplicate events. Choose the subscription above if you want future updates.</p>
 <p>No email signup, Gmail access, or personal credentials required.</p>
 <p>Last successful source refresh: <time>{synced}</time> (UTC). {len(events)} calendar events.</p>

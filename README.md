@@ -15,11 +15,26 @@ Initial setup is not supported in the Google Calendar mobile app. Notifications 
 
 ## Download a copy (one-time import)
 
+For Outlook automatic updates, see the instructions below. Downloading gives a snapshot only.
+
 1. From the published page, click **Download the calendar (.ics)**.
 2. In Google Calendar, open **Settings → Import & export**.
 3. Select the file, choose the destination calendar, and click **Import**.
 
 Downloaded copies do not update. Use only one method to avoid duplicates.
+
+## Add to Outlook (automatic updates)
+
+Once GitHub Pages is enabled:
+
+1. Open **Outlook in your browser → Calendar**.
+2. Click **Add calendar → Subscribe from web**.
+3. Paste `https://e-fried.github.io/sammy-ofer-calendar/calendar.ics`.
+4. Name it **Sammy Ofer traffic** and click **Import** or **Import and Save**.
+
+For a one-time import instead: **Calendar → Add calendar → Upload from file**, select the downloaded `.ics` file, choose a destination calendar, and click **Import**.
+
+Outlook may take more than 24 hours to show subscription updates. [Microsoft's instructions](https://support.microsoft.com/en-us/outlook/import-or-subscribe-to-a-calendar-in-outlook-com-or-outlook-on-the-web).
 
 ## Hosting status
 
