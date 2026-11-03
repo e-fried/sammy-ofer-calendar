@@ -10,3 +10,15 @@ public/
 *.sqlite3
 *.sqlite3-*
 .DS_Store
+
+# Local credentials, pilot records, and deployment notes must stay private.
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+client_secret*.json
+TEST_REPORT.md
+deployment/
