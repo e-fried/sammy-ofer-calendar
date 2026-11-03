@@ -65,50 +65,16 @@ def parse(html):
     return games
 
 
-def escape(value):
-    return value.replace('\\', '\\\\').replace('\n', '\\n').replace(';', '\\;').replace(',', '\\,')
-
-
-def traffic_start(game, lead_minutes=235, daily_start=None):
+def traffic_start(game, lead_minutes=180, daily_start=None):
     kickoff = datetime.fromisoformat(game['start']).astimezone(LOCAL)
     if daily_start:
         hour, minute = map(int, daily_start.split(':'))
         start = kickoff.replace(hour=hour, minute=minute)
     else:
-        start = kickoff - timedelta(minutes=lead_minutes)
+        start = (kickoff.astimezone(timezone.utc) - timedelta(minutes=lead_minutes)).astimezone(LOCAL)
     if start >= kickoff:
         raise ValueError('Traffic block must start before kickoff')
     return start
-
-
-def calendar(game, sequence=0, sender=None, recipient=None, reminder=0,
-             lead_minutes=235, daily_start=None, manage_url=None):
-    kickoff = datetime.fromisoformat(game['start']).astimezone(LOCAL)
-    start = traffic_start(game, lead_minutes, daily_start)
-    stamp = lambda d: d.astimezone(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Sammy Ofer Reminder//EN',
-             'METHOD:REQUEST' if sender else 'METHOD:PUBLISH', 'BEGIN:VEVENT',
-             'UID:' + game['uid'], f'SEQUENCE:{sequence}', 'DTSTAMP:' + stamp(datetime.now(timezone.utc)),
-             'DTSTART:' + stamp(start), 'DTEND:' + stamp(kickoff),
-             'SUMMARY:' + escape('Sammy Ofer traffic: ' + game['title']), 'LOCATION:' + escape('Sammy Ofer Stadium, Haifa'),
-             'DESCRIPTION:' + escape(game['competition'] + '\nKickoff: ' + kickoff.strftime('%Y-%m-%d %H:%M %Z') + '\nTraffic planning block; ends at kickoff.\nSource: ' + SOURCE + ('\nManage or unsubscribe: ' + manage_url if manage_url else '')),
-             'URL:' + SOURCE, 'STATUS:CONFIRMED', 'TRANSP:OPAQUE']
-    if sender:
-        lines += ['ORGANIZER:mailto:' + sender, 'ATTENDEE;RSVP=TRUE:mailto:' + recipient]
-    lines += ['BEGIN:VALARM', f'TRIGGER:-PT{reminder}M', 'ACTION:DISPLAY',
-              'DESCRIPTION:Sammy Ofer traffic planning starts', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR']
-    # RFC 5545 folds at 75 octets without splitting UTF-8 characters.
-    folded = []
-    for line in lines:
-        chunk = ''
-        for char in line:
-            if len((chunk + char).encode()) > 75:
-                folded.append(chunk)
-                chunk = ' '
-            chunk += char
-        folded.append(chunk)
-    return ('\r\n'.join(folded) + '\r\n').encode()
-
 
 
 def main():
@@ -116,10 +82,10 @@ def main():
     cli.add_argument('--html', type=Path, help='Read a saved stadium page')
     cli.add_argument('--output', type=Path, default=Path('output/sammy-ofer-traffic.ics'))
     cli.add_argument('--data', type=Path, default=Path('data/calendar'))
-    cli.add_argument('--lead-minutes', type=int, choices=(120, 180, 235, 240), default=235)
+    cli.add_argument('--lead-minutes', type=int, choices=(120, 180, 235, 240), default=180)
     args = cli.parse_args()
     if args.html:
-        html = args.html.read_text()
+        html = args.html.read_text(encoding='utf-8')
     else:
         with urlopen(Request(SOURCE, headers={'User-Agent': 'SammyOferReminder/1.0'}), timeout=30) as response:
             html = response.read().decode('utf-8')

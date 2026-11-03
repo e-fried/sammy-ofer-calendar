@@ -18,7 +18,7 @@ class UpdateTests(unittest.TestCase):
         mock_clock.fromisoformat.side_effect = datetime.fromisoformat
 
     def test_repeat_and_reschedule_keep_identity(self):
-        html = Path('tests/fixtures/stadium.html').read_text()
+        html = Path('tests/fixtures/stadium.html').read_text(encoding='utf-8')
         with TemporaryDirectory() as root:
             output, state = Path(root) / 'public', Path(root) / 'state.json'
             update(output, state, html)
@@ -30,10 +30,10 @@ class UpdateTests(unittest.TestCase):
             after = {str(e['UID']): e for e in Calendar.from_ical((output / 'calendar.ics').read_bytes()).walk('VEVENT')}
             self.assertEqual(before.keys(), after.keys())
             changed = [uid for uid in after if int(after[uid]['SEQUENCE']) == 1]
-            self.assertEqual(len(changed), 1)
+            self.assertEqual(len(changed), 2)
 
     def test_bad_scrape_preserves_published_files_and_state(self):
-        html = Path('tests/fixtures/stadium.html').read_text()
+        html = Path('tests/fixtures/stadium.html').read_text(encoding='utf-8')
         with TemporaryDirectory() as root:
             output, state = Path(root) / 'public', Path(root) / 'state.json'
             update(output, state, html)

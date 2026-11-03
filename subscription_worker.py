@@ -12,7 +12,7 @@ from subscriptions import Store
 def run(store, html=None):
     try:
         if html:
-            content = Path(html).read_text()
+            content = Path(html).read_text(encoding='utf-8')
         else:
             with urlopen(Request(SOURCE, headers={'User-Agent': 'SammyOferCalendar/1.0'}), timeout=30) as response:
                 content = response.read().decode('utf-8')

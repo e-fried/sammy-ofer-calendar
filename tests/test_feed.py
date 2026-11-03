@@ -13,7 +13,7 @@ class FeedTests(unittest.TestCase):
         self.client = self.app.test_client()
         self.store = self.app.extensions['store']
         self.game = dict(uid='fixture@example', title='Haifa match', competition='League',
-                         start=(datetime.now(timezone.utc) + timedelta(days=5)).isoformat())
+                         start=(datetime.now(timezone.utc) + timedelta(days=5)).replace(microsecond=0).isoformat())
 
     def test_empty_source_is_unavailable_not_empty_calendar(self):
         self.assertEqual(self.client.get('/calendar.ics').status_code, 503)
@@ -28,7 +28,7 @@ class FeedTests(unittest.TestCase):
         self.assertEqual(str(feed['X-WR-CALNAME']), 'Sammy Offer Calendar')
         self.assertNotIn('METHOD', feed)
         event = feed.walk('VEVENT')[0]
-        self.assertEqual(event.decoded('DTEND') - event.decoded('DTSTART'), timedelta(minutes=235))
+        self.assertEqual(event.decoded('DTEND') - event.decoded('DTSTART'), timedelta(hours=3))
         self.assertNotIn('ATTENDEE', event)
         self.assertNotIn('ORGANIZER', event)
         with self.store.db() as db:
@@ -55,6 +55,51 @@ class FeedTests(unittest.TestCase):
         self.assertEqual(event.decoded('DTEND') - event.decoded('DTSTART'), timedelta(hours=2))
         self.assertIn(b'Google cannot fetch', self.client.get('/calendar').data)
 
+
+    def test_two_events_have_expected_titles_times_and_unique_ids(self):
+        self.store.sync([self.game])
+        events = Calendar.from_ical(self.client.get('/calendar.ics').data).walk('VEVENT')
+        self.assertEqual(len(events), 2)
+        traffic, match = events
+        kickoff = datetime.fromisoformat(self.game['start'])
+        self.assertEqual(str(traffic['SUMMARY']), 'Game traffic')
+        self.assertIn(self.game['title'], str(traffic['DESCRIPTION']))
+        self.assertEqual(str(match['SUMMARY']), self.game['title'])
+        self.assertEqual(traffic.decoded('DTSTART'), kickoff - timedelta(hours=3))
+        self.assertEqual(traffic.decoded('DTEND'), kickoff)
+        self.assertEqual(match.decoded('DTSTART'), kickoff)
+        self.assertEqual(match.decoded('DTEND'), kickoff + timedelta(hours=2))
+        self.assertIn('estimate', str(match['DESCRIPTION']))
+        self.assertEqual(len({str(e['UID']) for e in events}), 2)
+        for event in events:
+            self.assertNotIn('ATTENDEE', event)
+            self.assertNotIn('ORGANIZER', event)
+
+    def test_existing_traffic_feed_migrates_once_preserving_identity(self):
+        import json
+        from subscriptions import digest
+        self.store.sync([self.game])
+        # Simulate the fingerprint and revision from the previous traffic-only release.
+        with self.store.db() as db:
+            db.execute('UPDATE feed_revisions SET fingerprint=?, sequence=7',
+                       (digest(json.dumps(self.game, sort_keys=True)),))
+        self.store.sync([self.game])
+        first = self.client.get('/calendar.ics').data
+        events = Calendar.from_ical(first).walk('VEVENT')
+        self.assertEqual(str(events[0]['UID']), self.game['uid'])
+        self.assertTrue(all(int(e['SEQUENCE']) == 8 for e in events))
+        self.store.sync([self.game])
+        self.assertEqual(self.client.get('/calendar.ics').data, first)
+
+    def test_israel_winter_and_summer_kickoff_export_to_utc(self):
+        for date, offset in (('2099-01-07', '+02:00'), ('2099-08-07', '+03:00')):
+            # Future winter/summer dates avoid the historical cutoff.
+            game = dict(self.game, start=date + 'T20:00:00' + offset)
+            self.store.sync([game])
+            traffic, match = Calendar.from_ical(self.client.get('/calendar.ics').data).walk('VEVENT')
+            kickoff = datetime.fromisoformat(game['start'])
+            self.assertEqual(match.decoded('DTSTART'), kickoff)
+            self.assertEqual(traffic.decoded('DTSTART'), kickoff - timedelta(hours=3))
 
 if __name__ == '__main__':
     unittest.main()

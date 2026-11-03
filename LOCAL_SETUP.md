@@ -1,6 +1,6 @@
 # Run on your Windows PC or Mac — no paid service
 
-This script reads the public stadium schedule. It does not access Gmail, Outlook, or any personal email account.
+This script reads the public stadium schedule and generates two events per match: the game at kickoff (estimated two-hour duration) and Game traffic for the preceding three hours. It does not access Gmail, Outlook, or any personal email account.
 
 ## Windows
 
@@ -32,7 +32,7 @@ An OS schedule is not installed by these files; the launchers use the visible si
 
 ## How to get automatic updates in Google Calendar
 
-Running locally updates the file, but Google cannot fetch a file that exists only on your PC. The current GitHub repository is private, and Pages publishing is not enabled.
+Running locally updates the file, but Google cannot fetch a file that exists only on your PC. For an updating subscription, GitHub Pages must be enabled and the public calendar URL must return a valid calendar.
 
 The simplest free end-to-end option remains **a public GitHub repository plus GitHub Pages**: enable Pages with GitHub Actions as its source. The existing workflow already runs the same updater online every six hours, so your PC can be off. Only calendar code and public match information were uploaded; no old email-pilot data was uploaded.
 

@@ -29,7 +29,7 @@ def atomic_write(path, data):
             os.unlink(temporary)
 
 
-def update(output_dir, state_path, html=None, lead=235):
+def update(output_dir, state_path, html=None, lead=180):
     # Fetch and parse before changing any previously published files or state.
     if html is None:
         with urlopen(Request(SOURCE, headers={'User-Agent': 'SammyOferCalendar/1.0'}), timeout=30) as response:
@@ -38,7 +38,7 @@ def update(output_dir, state_path, html=None, lead=235):
     with tempfile.TemporaryDirectory() as temporary:
         store = Store(temporary)
         if state_path.exists():
-            state = json.loads(state_path.read_text())
+            state = json.loads(state_path.read_text(encoding='utf-8'))
             if state.get('version') != 1:
                 raise ValueError('Unsupported saved state version; keep the previous calendar')
             with store.db() as db:
@@ -58,10 +58,10 @@ def update(output_dir, state_path, html=None, lead=235):
               'calendar_events': len(events), 'lead_minutes': lead}
     page = f'''<!doctype html><html lang="en"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sammy Ofer traffic calendar</title>
+<title>Sammy Offer Calendar</title>
 <style>body{{max-width:700px;margin:60px auto;padding:24px;font:18px/1.6 system-ui;color:#173e30;background:#f4f6f0}}a{{color:#126342}}code{{overflow-wrap:anywhere}}</style>
-<h1>Sammy Ofer traffic calendar</h1>
-<p>Subscribe once. Game-day traffic blocks start {lead} minutes before kickoff.</p>
+<h1>Sammy Offer Calendar</h1>
+<p>Subscribe once for two events per match: the teams playing at the published kickoff time, and a <strong>Game traffic</strong> block starting {lead} minutes before kickoff and ending at kickoff. Game events have an estimated two-hour duration.</p>
 <h2>Add to Google Calendar — automatic updates</h2>
 <ol><li>On a computer, open <a href="https://calendar.google.com/">Google Calendar</a>.</li>
 <li>Right-click <a href="calendar.ics">this calendar link</a> and choose <strong>Copy link address</strong>.</li>
@@ -72,7 +72,7 @@ def update(output_dir, state_path, html=None, lead=235):
 <ol><li>Open Outlook in your browser and select <strong>Calendar</strong>.</li>
 <li>Click <strong>Add calendar → Subscribe from web</strong>.</li>
 <li>Copy <a href="calendar.ics">this calendar link</a> and paste it into Outlook.</li>
-<li>Name it <strong>Sammy Ofer traffic</strong>, then click <strong>Import</strong> or <strong>Import and Save</strong>.</li></ol>
+<li>Name it <strong>Sammy Offer Calendar</strong>, then click <strong>Import</strong> or <strong>Import and Save</strong>.</li></ol>
 <p>Outlook refreshes subscriptions automatically, but changes can take more than 24 hours to appear.</p>
 <h2>Download a copy — no automatic updates</h2>
 <ol><li><a href="calendar.ics" download="sammy-ofer-calendar.ics">Download the calendar (.ics)</a>.</li>
@@ -100,11 +100,11 @@ def main():
     parser.add_argument('--output-dir', type=Path, default=Path('public'))
     parser.add_argument('--state', type=Path, default=Path('.calendar-state/fixtures.json'))
     parser.add_argument('--html', type=Path, help='Use saved HTML for testing instead of fetching')
-    parser.add_argument('--lead-minutes', type=int, choices=LEAD_TIMES, default=235)
+    parser.add_argument('--lead-minutes', type=int, choices=LEAD_TIMES, default=180)
     args = parser.parse_args()
     try:
         result = update(args.output_dir, args.state,
-                        args.html.read_text() if args.html else None, args.lead_minutes)
+                        args.html.read_text(encoding='utf-8') if args.html else None, args.lead_minutes)
     except Exception as exc:
         parser.exit(1, f'Calendar update failed: {exc}\n')
     print(f"Updated {args.output_dir / 'calendar.ics'}: {result['calendar_events']} events")

@@ -25,7 +25,7 @@ def create_app(root='data/calendar', base_url='http://127.0.0.1:8080'):
 
     def lead_time():
         try:
-            lead = int(request.args.get('lead', '235'))
+            lead = int(request.args.get('lead', '180'))
             if lead not in LEAD_TIMES:
                 raise ValueError()
             return lead
@@ -72,6 +72,6 @@ if __name__ == '__main__':
     app = create_app(os.getenv('DATA_DIR', 'data/calendar'), os.getenv('BASE_URL', f'http://127.0.0.1:{args.port}'))
     if args.html:
         from reminder import parse
-        app.extensions['store'].sync(parse(args.html.read_text()))
+        app.extensions['store'].sync(parse(args.html.read_text(encoding='utf-8')))
     from waitress import serve
     serve(app, host=args.host, port=args.port, threads=4)

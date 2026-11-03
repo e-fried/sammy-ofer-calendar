@@ -41,7 +41,9 @@ class Store:
         with self.db() as db:
             db.execute('BEGIN IMMEDIATE')
             for game in games:
-                fingerprint = digest(json.dumps(game, sort_keys=True))
+                # Bump once when the rendered event contract changes, including migration
+                # from the old traffic-only feed to paired match/traffic events.
+                fingerprint = digest('paired-events-v2|' + json.dumps(game, sort_keys=True))
                 old = db.execute('SELECT * FROM feed_revisions WHERE uid=?', (game['uid'],)).fetchone()
                 if not old or old['fingerprint'] != fingerprint:
                     db.execute('INSERT OR REPLACE INTO feed_revisions VALUES(?,?,?,?)',

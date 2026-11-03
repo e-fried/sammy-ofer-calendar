@@ -28,7 +28,7 @@ class CalendarOnlyTests(unittest.TestCase):
 
     def test_no_email_transport_in_runtime(self):
         for filename in ['app.py', 'subscriptions.py', 'subscription_worker.py', 'worker.py', 'reminder.py']:
-            source = Path(filename).read_text()
+            source = Path(filename).read_text(encoding='utf-8')
             self.assertNotIn('import smtplib', source)
             self.assertNotIn('SMTP_PASSWORD', source)
 
