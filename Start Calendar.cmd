@@ -7,7 +7,7 @@ if not exist ".venv\Scripts\python.exe" (
 )
 ".venv\Scripts\python.exe" -m pip install -r requirements.txt
 if errorlevel 1 goto failed
-echo Refreshing the calendar now and every six hours. Keep this window open.
+echo Refreshing the calendar now and every 24 hours. Keep this window open.
 ".venv\Scripts\python.exe" run_calendar.py --watch
 if errorlevel 1 goto failed
 exit /b 0

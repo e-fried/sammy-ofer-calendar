@@ -42,7 +42,7 @@ Choose **File → New Calendar Subscription** and paste the URL.
 
 ## Does it update automatically?
 
-**Yes.** The service checks the stadium website every six hours. Newly published games and kickoff changes appear in the same subscription after the next successful refresh. Your computer can be off, and you do not need to subscribe again.
+**Yes.** The service checks the stadium website every 24 hours. Newly published games and kickoff changes appear in the same subscription after the next successful refresh. Your computer can be off, and you do not need to subscribe again.
 
 Google, Outlook, and Apple Calendar control their own refresh timing, so changes may take longer to appear. [Check the latest source refresh](https://e-fried.github.io/sammy-ofer-calendar/status.json).
 

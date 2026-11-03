@@ -10,5 +10,5 @@ if [ ! -x .venv/bin/python ]; then
   python3 -m venv .venv
 fi
 .venv/bin/python -m pip install -r requirements.txt
-echo 'Refreshing the calendar now and every six hours. Keep this window open.'
+echo 'Refreshing the calendar now and every 24 hours. Keep this window open.'
 .venv/bin/python run_calendar.py --watch

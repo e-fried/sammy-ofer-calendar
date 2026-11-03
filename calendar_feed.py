@@ -24,8 +24,8 @@ def build_feed(store, lead=180):
     feed.add('x-wr-timezone', 'Asia/Jerusalem')
     feed.add('x-wr-caldesc', f'Matches and {lead}-minute traffic blocks from the official stadium schedule. Times may change.')
     # This is a hint, not a promise that a client will refresh at this interval.
-    feed.add('refresh-interval', timedelta(hours=6))
-    feed.add('x-published-ttl', 'PT6H')
+    feed.add('refresh-interval', timedelta(hours=24))
+    feed.add('x-published-ttl', 'PT24H')
     cutoff = datetime.now(timezone.utc) - timedelta(days=30)
     for row in rows:
         game = json.loads(row['payload'])

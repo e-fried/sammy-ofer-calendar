@@ -30,7 +30,7 @@ def main():
     parser.add_argument('--html')
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)
-    interval = int(os.getenv('SYNC_INTERVAL_SECONDS', '21600'))
+    interval = int(os.getenv('SYNC_INTERVAL_SECONDS', '86400'))
     if interval < 60:
         parser.error('Sync interval must be at least 60 seconds')
     store = Store(os.getenv('DATA_DIR', 'data/calendar'), os.getenv('BASE_URL', 'http://127.0.0.1:8080'))

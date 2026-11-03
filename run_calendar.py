@@ -1,4 +1,4 @@
-"""Run the calendar updater once, or every six hours on Windows/macOS."""
+"""Run the calendar updater once, or every 24 hours on Windows/macOS."""
 import argparse
 import logging
 from pathlib import Path
@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--watch', action='store_true', help='Keep refreshing until stopped')
-    parser.add_argument('--interval-minutes', type=int, default=360)
+    parser.add_argument('--interval-minutes', type=int, default=1440)
     args = parser.parse_args()
     if args.interval_minutes < 1:
         parser.error('Interval must be at least one minute')
