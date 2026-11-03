@@ -47,3 +47,8 @@ Run `pip install -r requirements.txt`, then `python update_calendar.py` to gener
 The workflow refreshes every six hours and publishes only the generated public directory. Keep `.calendar-state/fixtures.json` between runs to preserve revisions. Failed scrapes retain the previous published calendar. Missing source listings are not treated as cancellations.
 
 Run tests: `python -m unittest discover -s tests -v`.
+
+
+## Run on Windows or Mac
+
+See [the local setup guide](LOCAL_SETUP.md). Launch `Start Calendar.cmd` on Windows, or run `bash "Start Calendar.command"` on Mac. The updater refreshes the local file every six hours while running. Google subscriptions still require a publicly accessible calendar URL.
